@@ -24,4 +24,4 @@ function MovieControls({movie, type}) {
   )
 }
 
-export default MovieControls
+export default MovieControls;

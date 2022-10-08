@@ -22,8 +22,9 @@ function Add() {
     });
   };
   return (
-    <div>
+    <div className='add-content'>
       <div className='input-wrapper'>
+        <div className=''>
       <input type="text" 
       placeholder='Search for a Movie'
       value={query}
@@ -38,6 +39,7 @@ function Add() {
           ))}
         </ul>
       )}
+      </div>
     </div>
   )
 }

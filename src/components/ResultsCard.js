@@ -1,28 +1,37 @@
-function AppReducer (state, action) {
-    switch(action.type){
-        case "ADD_MOVIE_TO_WATCHLIST":
-            return {
-                ...state,
-                watchList: [action.payload, ...state.watchList],
-            };
-            case "REMOVE_MOVIE_FROM_WATCHLIST":
-                return {
-                    ...state,
-                    watchList: state.watchList.filter((movie) => movie.id !== action.payload),
-                };
-            case "ADD_MOVIE_TO_WATCHED":
-                return {
-                    ...state,
-                    watchList: state.watchList.filter((movie) => movie.id !== action.payload.id),
-                    watched: [action.payload, ...state.watched],
-                };
-            case "REMOVE_FROM_WATCHED": 
-                return {
-                    ...state,
-                    watched: state.watched.filter(movie => movie.id !== action.payload),
-                };
-        default:
-            return state;
-        }
+import React, { useContext} from 'react';
+import {GlobalContext} from '../context/GlobalState'
+
+function ResultsCard({movie}) {
+    const { addMovieToWatchList, watchList} = useContext(GlobalContext);
+
+    let storedMovie = watchList.find(o => o.id === movie.id);
+    
+    const watchListDisabled = storedMovie ? true : false;
+    
+  return (
+    <div className='result-card'>
+    <div className='poster-wrapper'>
+        {movie.poster_path ? (
+            <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+            alt={`${movie.title} Poster`}/>
+        ): (
+            <div className='filler-poster'></div>
+        )}
+    </div>
+    <div className='info'>
+        <div className='header'>
+            <h3 className='title'>{movie.title}</h3>
+            <h4 className='release-date'>{movie.release_date}</h4>
+        </div>
+        <div className='controls'>
+           <button className='btn'
+           disabled={watchListDisabled}
+           onClick={() => addMovieToWatchList(movie)}>Add to WatchList</button>
+        </div>
+    </div>
+
+    </div>
+  )
 }
-export default AppReducer;
+
+export default ResultsCard;
