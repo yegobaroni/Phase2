@@ -1,3 +1,23 @@
+# Project Name
+
+This project name is My Movie Watchlist
+
+## Project Description
+
+This Project is designed to help users to kind of keep track of the movies they can watch and have watched. Users search for the movie they wish to watch then add to the movie list. After watching the movie can click the watched button and the movie is transferred to be in the watched list. Also is a remove button where the movies can be removed.
+
+# Author
+
+yegobaoni@github
+
+## Setup
+
+After unbundling the project:
+
+1. Run `npm install` in your terminal.
+2. Run `npm run server`. This will run your backend on port `3000`.
+3. In a new terminal, run `npm start`. This will run your React app on port `3000`.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
