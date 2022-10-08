@@ -8,7 +8,7 @@ This Project is designed to help users to kind of keep track of the movies they 
 
 # Author
 
-yegobaoni@github
+yegobaoni@github.com
 
 ## Setup
 
